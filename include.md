@@ -14,4 +14,4 @@ Generally speaking, it's a bad idea to schedule the new show with shows that are
 
 The dataset can be downloaded from the Data tab.
 
-Please note: I refrained from going into detail about what those numeric values actually mean in media math. For a basic understanding, the higher a value for a particular demographic is, the more popular a show is for that particular demographic. The mininum and maximum values set for different demographic groups are based on real TV audience data. 
+Please note: In media math, VPVH stand for Demographic Viewers for One Thousand Households. For a basic understanding, the higher the value for a particular demographic is, the more popular a show is for that particular demographic. The minimum and maximum values set for the different demographic groups are based on real TV audience data. 
