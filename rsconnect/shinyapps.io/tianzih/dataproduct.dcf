@@ -1,8 +1,8 @@
 name: dataproduct
 account: tianzih
 server: shinyapps.io
-bundleId: 204717
+bundleId: 205942
 url: https://tianzih.shinyapps.io/dataproduct
-when: 1434566715.05666
+when: 1434723422.2619
 asMultiple: FALSE
 asStatic: FALSE

@@ -7,14 +7,14 @@ transition: rotate
 Background
 ========================================================
 In my line of work as an audience research analyst, I often
-need to make scheduling recommendations for a new show 
+need to make scheduling recommendations for a new show
 based on its estimated age and gender skew information.
 
 While coming up with reliable estimates for a show is a
 topic on its own, using those estimates to plan its place
 in the chaotic competitive landscape can be challenging.
 
-My first Shiny App named **Smart TV Program Scheduler** aims 
+My first Shiny App named **Smart TV Program Scheduler** aims
 to overcome this challenge, using simulated TV audience data.
 
 Simulate Data
@@ -31,27 +31,29 @@ positives <- function(mn, std){
       }
       v
 }
-data <- cbind(positives(4.88, 2.97), positives(7.53, 5.50), 
+data <- cbind(positives(4.88, 2.97), positives(7.53, 5.50),
                  positives(17.79, 6.30), positives(23.96, 8.30),
                  positives(4.86, 2.71), positives(10.64, 5.19),
                  positives(25.41, 4.89), positives(39.43, 12.84))
-colnames(data) <- paste(rep(c("m", "f"), each=4), 
+colnames(data) <- paste(rep(c("m", "f"), each=4),
                         rep(c("2to17", "18to34", "35to54", "55to99")), sep="")
-rownames(data) <- paste("show", rep(1:50), sep="")
+rownames(data) <- paste("show", rep(1:50), sep=" ")
 data<- data.frame(data)
+```
+```{r, echo=TRUE, cache=TRUE}
 data[1:6, 1:4]
 ```
 
 Preferred Method: hierarchical clustering
 ========================================================
 The App makes an intial plot using the existing shows. Sliders
-in the App compile user-input data for a new TV show. Once the 
-user hits Submit, the App runs a clustering method to group 
+in the App compile user-input data for a new TV show. Once the
+user hits Submit, the App runs a clustering method to group
 the new show with the existing shows.
 
-This clustering method is known as ~~hierarchical clustering~~. 
-There are other clustering methods available through R, such 
-as ~~K-means clustering~~.  However, hierarchical clustering seems 
+This clustering method is known as ~~hierarchical clustering~~.
+There are other clustering methods available through R, such
+as ~~K-means clustering~~.  However, hierarchical clustering seems
 to produce the most stable and reliable outcome.
 
 Sample Plot (reduced dimension)
@@ -63,6 +65,6 @@ rownames(new)[26] <- "New Awesome TV Show"
 cc <- rev(brewer.pal(n = 11, name = "RdYlBu"))
 pal <- colorRampPalette(cc)
 pheatmap(new, cluster_cols = FALSE, color = pal(200),
-         treeheight_row = 150, border_color = "white", 
+         treeheight_row = 150, border_color = "white",
          main = "TV Programs Age/Gender Intel")
 ```
